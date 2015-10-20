@@ -77,7 +77,7 @@
 			</iris-panel>
 			<iris-panel class="iris-panel" caption="CONTROL FACTORY">
 				<div class="content">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+					<paper-button onclick="addNewPanel();" raised>Add Panel</paper-button>
 				</div>
 			</iris-panel>
 			<iris-panel class="iris-panel">
@@ -88,8 +88,31 @@
 		</iris-dashboard-column>	
 	</iris-dashboard-row>
 </iris-dashboard>
-<!--script>
+<script>
+var i = 0;
+function addNewPanel(){
+	var irisDashboard = $('iris-dashboard');
+	if (!irisDashboard)
+		return;
+	i++;
+	var p = irisDashboard[0].add(IRIS.createElement({
+		tagName:"IRIS-PANEL",
+		attributes:{
+			caption:"Panel - "+i,
+			height: 200
+		},
+		items:[{
+			tagName:"div",
+			attributes:{
+				class:"content"
+			}
+		}]
+	}))
+	var c = p.querySelector("#content").querySelector(".content");
+	c.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.";
+}
 
+/*
 function MenuCallback(panel){
 	console.log('on chat menu click')
 	panel.menuitems = [{"value": "Hello", "key":"h"}];
@@ -117,6 +140,7 @@ $(window).on('polymer-ready', function(e) {
 		return
 	};
 });
-</script-->
+*/
+</script>
 </body>
 </html>
