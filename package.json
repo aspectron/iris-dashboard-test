@@ -1,0 +1,29 @@
+{
+  "name": "dashboard-test",
+  "version": "0.0.1",
+  "author": {
+    "name": "ASPECTRON Inc.",
+    "email": "info@aspectron.com"
+  },
+  "description": "DASHBOARD test",
+  "private": true,
+  "main" : "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "underscore" : "*",
+    "node-uuid" : "*",
+    "iris-app": "*",
+    "iris-i18n" : "*",
+    "iris-base58" : "*",
+    "iris-utils" : "*",
+    "iris-rpc" : "*",
+    "iris-polymer": "*",
+    "iris-icons": "*"
+  },
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  }
+}

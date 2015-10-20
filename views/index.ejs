@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>DASHBOARD Testing</title>
+	<script src="/deps/webcomponentsjs/webcomponents.js"></script>
+	<link rel="import" href="/deps/polymer/polymer.html" />
+	<link rel="import" href="/IRIS/iris-base.html" />
+	<link rel="import" href="/IRIS/iris-dashboard.html" />
+	<link rel="import" href="/IRIS/iris-panel.html" />
+	<script type="text/javascript" src="/IRIS/scripts/jquery-2.1.3.js"></script>
+	<script type="text/javascript" src="socket.io/socket.io.js"></script>
+	<style is="custom-style">
+		/*html /deep/ paper-toolbar.small{
+			height: 30px;
+			background-color: #FAFBFC;
+		}
+		html /deep/ paper-toolbar.small /deep/ .toolbar-tools{
+			height: 30px;
+		}
+		html /deep/ paper-toolbar.small /deep/ paper-icon-button{
+			padding: 0px;
+		}
+		html /deep/ paper-toolbar.mini{
+			height: 22px;
+			background-color: #FAFBFC;
+		}
+		html /deep/ paper-toolbar.mini /deep/ .toolbar-tools{
+			height: 22px;
+		}
+		html /deep/ paper-toolbar.mini /deep/ iron-icon-button{
+			padding: 0px 5px;
+		}
+		html /deep/ paper-toolbar.mini>*{
+			margin:0px 2px;
+		}
+		html /deep/ paper-toolbar.mini /deep/ iron-icon{
+			height: 12px;
+			width: 12px;
+		}*/
+		.content{height:200px; padding: 10px;}
+	</style>
+</head>
+<body>
+
+<div>IRIS DASHBOARD DEMO</div>
+<iris-dashboard>
+	<iris-dashboard-row class="horizontal layout">
+		<iris-dashboard-column class="flex vertical layout">
+			<iris-panel class="iris-panel" height="200" isdragable>
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+			<iris-panel class="iris-panel" caption="USER SELECTOR" isdragable>
+				<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+			<iris-panel class="iris-panel" caption="USER CREATE" isdragable>
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+		</iris-dashboard-column>
+		<iris-dashboard-splitter></iris-dashboard-splitter>
+		<iris-dashboard-column style="width:276px;max-width:276px;min-width:276px;">
+			<iris-panel class="iris-panel" caption="Login">
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+			<iris-panel class="iris-panel" id="chatwindow" minheight="120" caption="CHAT">
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+			<iris-panel class="iris-panel" caption="CONTROL FACTORY">
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+			<iris-panel class="iris-panel">
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo turpis, lacinia in velit non, lobortis ornare nunc. Proin ut blandit magna. Etiam consequat, sapien nec pharetra accumsan, sem est dictum augue, quis mollis nunc nibh vitae sapien. In commodo, urna a hendrerit efficitur, neque nibh commodo velit, tristique vulputate lectus ligula vitae metus. Vivamus congue feugiat metus, sed aliquam odio dapibus sit amet. Ut feugiat est elit, faucibus feugiat purus malesuada at. Nulla pharetra aliquam nisi congue egestas. Praesent vestibulum egestas erat at placerat. Aenean eget nisi dictum, sodales metus in, luctus orci. Vestibulum id viverra augue. Quisque dictum elementum ex eu fermentum.
+				</div>
+			</iris-panel>
+		</iris-dashboard-column>	
+	</iris-dashboard-row>
+</iris-dashboard>
+<!--script>
+
+function MenuCallback(panel){
+	console.log('on chat menu click')
+	panel.menuitems = [{"value": "Hello", "key":"h"}];
+
+	setTimeout(function(){
+		alert('MenuCallback: showMenuDropdown')
+		panel.showMenuDropdown();
+	}, 1000);
+	return false;
+}
+
+function RegisterCallback(){
+	document.getElementById('chatwindow').registerMenuCallback(MenuCallback);
+}
+
+function UnregisterCallback(){
+	document.getElementById('chatwindow').unregisterMenuCallback(MenuCallback);
+	// and/or remove menues
+	document.getElementById('chatwindow').menuitems = [];
+}
+$(window).on('polymer-ready', function(e) {
+	// how it should be used / what we need /
+	//alert('polymer-ready')
+	if (!window.BRT) {
+		return
+	};
+});
+</script-->
+</body>
+</html>
